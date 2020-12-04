@@ -212,10 +212,10 @@ class Revistas:
                 #print(info_entrada)
                 form = ContactForm(info_entrada) # as informações são carredas nesse momento
                 info_entrada=None
-                print(form)
+                
                 forms = OrderForms(instance=order_forms, prefix='main')
                 formset = item_order_formset(instance=order_forms, prefix='product')
-
+                print(forms)
                 context = {
                         'forms': forms,
                         'formset': formset,

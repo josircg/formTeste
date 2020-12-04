@@ -1,4 +1,4 @@
-#from django.forms.models import inlineformset_factory
+from django.forms.models import inlineformset_factory
 from django import forms 
 from django.db import models   
 from .models import Order, ItemOrder
@@ -28,14 +28,14 @@ class ContactForm(forms.Form):
 #            model = ItemOrder
 #            exclude = ['order']
 #    
-#    order_forms = Order()
-#    item_order_formset = inlineformset_factory(Order, ItemOrder, form=ItemOrderForms, extra=1, can_delete=False, min_num=1, validate_min=True)
+    order_forms = Order()
+    item_order_formset = inlineformset_factory(Order, ItemOrder, form=ItemOrderForms, extra=1, can_delete=False, min_num=1, validate_min=True)
 #
 #    #Pagina Um
 #    
 #
 #    #teste1 = forms.CharField(max_length=200,on_delete=forms.CASCADE, label='TEESTE', required=False)
-#    teste2 = forms.CharField(max_length=200, label='TEESTE', required=False)
+    teste2 = forms.CharField(max_length=200, label='TEESTE', required=False)
     
     
     descri_dcdescriptionabastract = "Descreva o escopo, foco ou objetivo da revista de maneira sucinta"
@@ -73,6 +73,9 @@ class ContactForm(forms.Form):
     descri_language="Selecione o (s) idioma (s) aceito (s) pela revista para submissão de documentos. Indique a resposta de acordo com as opções descritas na aba Opções de resposta. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto."
     dclanguage = forms.CharField(max_length=100,label='Idioma de publicação',help_text = descri_language , required=True)    
 
+
+    
+    
     # Pagina dois
     
     descri_cnpq="Selecione as principais áreas do conhecimento em que a revista publica seus conteúdos, de acordo com a tabela de áreas do CNPq. Indique a resposta de acordo com as opções descritas na aba Opções de resposta. Solicita-se que sejam selecionadas somente as áreas de conhecimento em que a revista dá mais ênfase em suas publicações, não sendo aconselhável adicionar mais do que cinco entradas."

@@ -10,7 +10,7 @@ from django.db import models
 
 
 class Order(models.Model):
-    client = models.CharField(max_length=250)
+    URL = models.CharField(max_length=250)
 
 
 class ItemOrder(models.Model):
