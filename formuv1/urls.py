@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 #from .login import LoginRevista
-
+from . import views
 from .revista import Revistas
 from .revista import Login
 
@@ -32,6 +32,7 @@ urlpatterns = [
     path('login/', login.user_login, name='login'),
     path('revista/', revistas.revista, name='revista'),
     path('order/', revistas.revista, name='order'),
+    path('form/', views.form_teste, name='form'),
 ]
 
 if settings.DEBUG:

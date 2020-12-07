@@ -15,6 +15,8 @@ class ItemOrderForms(forms.ModelForm):
         exclude = ['order']
 
 
+class FormDinamico(forms.Form):
+    form = forms.CharField(widget=forms.TextInput(attrs={'id': 'field-1', 'name': 'field-1'}))
 
 
 class ContactForm(forms.Form):

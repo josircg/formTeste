@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div id="fields">
+            {% for field in form %}
+            <div id="field">
+                <label for="field-1">{{ field.label }}</label>
+                {{ field }}
+                {{ field.error }}
+            </div>
+            {% endfor %}
+        </div>
+        <button id="add">+</button>
+        <hr>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        $(document).ready(function(){
+            var number_field = 1;
+            $('#field input').attr('name', 'field-1');
+
+
+            $('#add').click(function (e) {
+               e.preventDefault();
+               number_field++;
+               var field = $('#field input').clone();
+               var label = $('#field label').clone();
+               var fields = $('#fields');
+
+               field.attr('name', `field-${number_field}`);
+               field.attr('id', `field-${number_field}`);
+               label.attr('for', `field-${number_field}`);
+
+               var newField = `<div id="field-${number_field}">
+                                    ${label[0].outerHTML}
+                                    ${field[0].outerHTML}
+                                </div>`;
+               fields.append(newField);
+            });
+        });
+
+    </script>
+{% endblock %}
